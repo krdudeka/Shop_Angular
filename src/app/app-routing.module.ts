@@ -5,6 +5,7 @@ import {ShopComponent} from "./shop/shop.component";
 import {ProductsComponent} from "./shop/products/products.component";
 import {ShippingComponent} from "./shop/shipping/shipping.component";
 import {EditorComponent} from "./shop/products/editor/editor.component";
+import {UsersComponent} from "./shop/users/users.component";
 
 //dodajemy obiekty, które definiują adresy, w pierwszym wpisie nic nie ma w ścieżce, czyli jest domyślna localhost:4200
 //dzieci dodajemy, żeby tworzyć drzewko shop/shipping itp
@@ -19,7 +20,8 @@ const routes: Routes = [
       //bo produkty są pod dwoma nazwami wyświetlane
       {path: 'products/editor', component: EditorComponent},
       {path: 'products/editor/:id', component: EditorComponent},
-      {path: 'shipping', component: ShippingComponent}
+      {path: 'shipping', component: ShippingComponent},
+      {path: 'users', component:UsersComponent}
     ]
   }
 ];
