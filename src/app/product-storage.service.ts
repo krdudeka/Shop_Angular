@@ -25,5 +25,31 @@ export class ProductStorageService {
     const productIndex = this.products.findIndex(p => p.id === id);
     this.products.splice(productIndex, 1);
   }
+//definicja id countera
+  private idCount: number = 3;
+
+  //przypisanie i inkrementacja w komentarzu
+  //w if jest sprawdzanie czy produkt ma ID, jeśli ma to go nadpisujemy, jeśli nie ma to dodajemy jako nowy
+  saveProduct(product: Product) {
+   /* product.id = this.idCount;
+    this.products.push(product);
+    this.idCount++;*/
+   if (product.id){
+     const productIndex = this.products.findIndex(p => p.id === product.id);
+     this.products[productIndex] = product;
+   } else {
+     product.id = this.idCount;
+     this.products.push(product);
+     this.idCount++;
+   }
+
+  }
+
+  //metoda pootrzebna do zwracania produktu po id
+  getProduct(id: number) {
+    const productIndex = this.products.findIndex(p => p.id === id);
+    //zwracamy kopię, zamiast bezpośredniej referencji - bezpieczeństwo danych
+    return {...this.products[productIndex]};
+  }
 
 }

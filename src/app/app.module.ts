@@ -8,6 +8,8 @@ import { ShopComponent } from './shop/shop.component';
 import { ShippingComponent } from './shop/shipping/shipping.component';
 import { ProductsComponent } from './shop/products/products.component';
 import { EditorComponent } from './shop/products/editor/editor.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EditorComponent } from './shop/products/editor/editor.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

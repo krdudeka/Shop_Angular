@@ -14,9 +14,11 @@ const routes: Routes = [
 //domyślnie przenosi nas do listy produktów
       {path: '', component: ProductsComponent},
       {path: 'editor', component: EditorComponent},
+      {path: 'editor/:id', component: EditorComponent},
       {path: 'products', component: ProductsComponent},
       //bo produkty są pod dwoma nazwami wyświetlane
       {path: 'products/editor', component: EditorComponent},
+      {path: 'products/editor/:id', component: EditorComponent},
       {path: 'shipping', component: ShippingComponent}
     ]
   }

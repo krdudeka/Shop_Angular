@@ -21,7 +21,7 @@
         <span [attr.uk-icon]="product.available ? 'check' : 'close'"></span>
       </td>
       <td style="width: 250px">
-        <a ><input type="button" class="uk-button uk-button-primary" value="Edytuj"></a>
+        <a routerLink="editor/{{product.id}}"><input type="button" class="uk-button uk-button-primary" value="Edytuj"></a>
         <a (click)="removeProduct(product.id)"><input type="button" class="uk-button uk-button-danger" value="Usuń"></a>
       </td>
     </tr>

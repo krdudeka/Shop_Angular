@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "./Product";
 import {ProductStorageService} from "../../product-storage.service";
+import {HttpClientService} from "../../http-client.service";
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,7 @@ import {ProductStorageService} from "../../product-storage.service";
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productStorage: ProductStorageService) {
+  constructor(private productStorage: ProductStorageService, private httpClient: HttpClientService) {
 
   }
 
@@ -21,13 +22,23 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
   //obserwator zwraca wartość produkty => funkcja bezimienna => bierzemy produkty z tablicy i je przypisujemy do tej tablicy
-    getProducts() {
+  /*  getProducts() {
     this.productStorage.getProducts().subscribe(products => this.products = products);
+  }*/
+//zmiana na httpClient - żeby korzystać z zewnętrznego serwera
+    getProducts() {
+    this.httpClient.getProducts().subscribe(products => this.products = products);
   }
 
-  removeProduct(id: number) {
+ /* removeProduct(id: number) {
       this.productStorage.removeProduct(id);
-  }
+  }*/
 
+//zmiana na httpClient
+  removeProduct(id: number) {
+    this.httpClient.removeProduct(id).subscribe(r => {
+      this.getProducts();
+    });
+  }
 
 }
