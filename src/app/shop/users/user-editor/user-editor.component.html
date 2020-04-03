@@ -1,0 +1,25 @@
+<div style="width: 400px; margin: auto">
+  <div class="uk-margin">
+    <label>Login</label>
+       <input [(ngModel)]="user.login" class="uk-input" type="text">
+  </div>
+  <div class="uk-margin">
+    <label>e-mail</label>
+    <input [(ngModel)]="user.email" type="text" class="uk-input">
+  </div>
+  <div class="uk-margin">
+    <label>Wiek</label>
+    <input [(ngModel)]="user.age" type="number" class="uk-input">
+  </div>
+  <div class="uk-margin">
+    <label>Państwo</label>
+    <input [(ngModel)]="user.country" type="text" class="uk-input">
+  </div>
+  <div class="uk-margin">
+    <label>Aktywność</label>
+    <input [(ngModel)]="user.active" type="checkbox" class="uk-checkbox">
+  </div>
+  <input hidden type="number">
+  <a routerLink="/shop"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+  <input (click)="saveUser(user)" class="uk-button uk-button-primary" type="submit" value="Zapisz">
+</div>

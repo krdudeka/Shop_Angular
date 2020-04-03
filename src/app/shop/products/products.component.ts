@@ -10,16 +10,15 @@ import {HttpClientService} from "../../http-client.service";
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productStorage: ProductStorageService, private httpClient: HttpClientService) {
+  products: Product[] = [];
 
-  }
 
   //metoda uruchamiająca się przy wyświetlaniu strony/ładowaniu
   ngOnInit(): void {
   this.getProducts()
   }
 
-  products: Product[] = [];
+  constructor(private productStorage: ProductStorageService, private httpClient: HttpClientService) {}
 
   //obserwator zwraca wartość produkty => funkcja bezimienna => bierzemy produkty z tablicy i je przypisujemy do tej tablicy
   /*  getProducts() {

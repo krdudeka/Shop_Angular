@@ -1,0 +1,32 @@
+<h2>Użytkownicy</h2>
+<table class="uk-table uk-table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Login</th>
+    <th>e-mail</th>
+    <th>Wiek</th>
+    <th>Państwo</th>
+    <th>Aktywność</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; let i = index">
+    <td>{{user.id}}</td>
+    <td>{{user.login}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.age}}</td>
+    <td>{{user.country}}</td>
+    <td>
+      <span [attr.uk-icon]="user.active ? 'check' : 'close'"></span>
+    </td>
+    <td style="width: 250px">
+      <a routerLink="editor/{{user.id}}"><input type="button" class="uk-button uk-button-primary" value="Edytuj"></a>
+      <a (click)="removeUser(user.id)"><input type="button" class="uk-button uk-button-danger" value="Usuń"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <a routerLink="editor"><input style="background-color: #32d296; color: white" class="uk-button" type="button" value="Dodaj użytkownika"></a>
+</div>
