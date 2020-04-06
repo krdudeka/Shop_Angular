@@ -21,7 +21,7 @@ export class UserEditorComponent implements OnInit {
 
   saveUser(user: User) {
     this.httpClient.saveUser(user).subscribe(r => {
-      this.router.navigate(['/users']);
+      this.router.navigate(['shop/users']);
     });
   }
 
